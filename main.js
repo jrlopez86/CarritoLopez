@@ -1,100 +1,124 @@
+//registro de usuario (simula una base de datos, lo cual se iria guardando en el array cada usuario que se registre, al finalizar la simulacion ver la cosnola donde deberia aparecer el usuario registrado dentro del array)
+
+alert("Por favor registrse en la web")
+
+
+let nomUser = prompt("Ingrese su nombre");
+let telUser = prompt("Ingrese su telefono");
+let emailUser = prompt("Ingrese su email");
+
+
+    function Usuarios(nombre, telefono, email){
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.email = email;
+
+    }
+
+const user1= new Usuarios(nomUser, telUser, emailUser);
+const usuarios = [user1];
+
+
+const agregarUsuarios = [];
+
+
+    function CarrgarUsuario(arr, user1) {
+        arr.push(user1);
+    }
+
+    CarrgarUsuario(agregarUsuarios, user1)
+
+console.log(agregarUsuarios);
 
 
 
+// Bienvenida a la web
 
-// simulo con el alert el index del marketplace
-alert("Disponemos de esta lista de videjuegos,   escriba el nombre para agregar al carrito:\n \n 1) Super Mario World \n 2) Castlevania \n 3) Zelda \n 4) Star Fox \n 5) Mario Kart \n 6) Super Metroid");
+    function Bienvenida ( nomUser){
+        alert("Hola " +  nomUser + "!,  Bienvenido/a a la pagina de videojuegos retro");
+    }
+
+Bienvenida(nomUser);
+
+
+
+// Simula con el alert el index del marketplace
+
+alert("Disponemos de esta lista de videjuegos, escriba el nombre como se muestra en la lista para agregarlo al carrito:\n \n 1) Super Mario World \n 2) Castlevania \n 3) Zelda \n 4) Star Fox \n 5) Mario Kart \n 6) Super Metroid");
 
 let entrada = prompt("Seleccione un videojuego para el carrito. Escriba  ok para finalizar la compra");
 
 
+let juegos = 200;
+let resultado = 0;
+let cantidad = 0;
+let total = 0;
 
+
+// Funcion para buscar y agregar videojuegos, hace una operacion para darle al usuario el total del carrito.
 
 function Carrito () {
-
-    let juegos = 200;
-    let resultado = 0;
-    let resultado2 = 0;
-    let resultado3 = 0;
-    let resultado4 = 0;
-    let resultado5 = 0;
-    let resultado6 = 0;
-    
-    
 
     while( entrada != "ok"){
         switch (entrada) {
             case "Super Mario World":
-                let cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
-                alert("Se agrego al carrito " + cantidad + " titulos de Super Mario World");
-                if (resultado < cantidad) {
-                resultado = resultado + (cantidad * juegos) ;
+                cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
+                alert("Se agrego al carrito " + cantidad + " titulo/s de Super Mario World");
+                if (resultado <= cantidad) {
+                total += (cantidad * juegos);
 
-
-                alert("El valor es de $" + resultado);
+                alert("El valor de su carrito es de $" + total);
                 }
-                
-                        
                 
                 break;
             case "Castlevania":
-                let cantidad2 = parseInt(prompt("Cuantos titulos queres comprar?"));
-                alert("Se agrego al carrito " + cantidad2 + " titulos de Castlevania");
-                if (resultado2 < cantidad2) {
-                resultado2 = resultado2 + (cantidad2 * juegos) ;
+                cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
+                alert("Se agrego al carrito " + cantidad + " titulo/s de Castlevania");
+                if (resultado < cantidad) {
+                total += (cantidad * juegos);
 
-
-                alert("El valor es de $" + resultado2);
+                alert("El valor de su carrito es de $" + total);
                 }
-                
-                
+                 
                 break;    
             case "Zelda":
-                let cantidad3 = parseInt(prompt("Cuantos titulos queres comprar?"));
-                alert("Se agrego al carrito " + cantidad3 + " titulos de Zelda");
-                if (resultado2 < cantidad3) {
-                resultado3 = resultado3 + (cantidad3 * juegos) ;
+                cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
+                alert("Se agrego al carrito " + cantidad + " titulo/s de Zelda");
+                if (resultado < cantidad) {
+                total += (cantidad * juegos);
 
-
-                alert("El valor es de $" + resultado3);
+                alert("El valor de su carrito es de $" + total);
                 }
                 
-        
                 break;
             case "Star Fox":
-                let cantidad4 = parseInt(prompt("Cuantos titulos queres comprar?"));
-                alert("Se agrego al carrito " + cantidad4 + " titulos de Star Fox");
-                if (resultado4 < cantidad4) {
-                resultado4 = resultado4 + (cantidad4 * juegos) ;
+                cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
+                alert("Se agrego al carrito " + cantidad + " titulo/s de Star Fox");
+                if (resultado < cantidad) {
+                total += (cantidad * juegos);
 
-
-                alert("El valor es de $" + resultado4);
+                alert("El valor de su carrito es de $" + total);
                 }
-                
-                
                 
                 break;
             case "Mario Kart":
-                let cantidad5 = parseInt(prompt("Cuantos titulos queres comprar?"));
-                alert("Se agrego al carrito " + cantidad5 + " titulos de Mario Kart");
-                if (resultado5 < cantidad5) {
-                resultado5 = resultado5 + (cantidad5 * juegos) ;
+                cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
+                alert("Se agrego al carrito " + cantidad + " titulo/s de Mario Kart");
+                if (resultado < cantidad) {
+                total += (cantidad * juegos) ;
 
-
-                alert("El valor es de $" + resultado5);
-                }6
+                alert("El valor de su carrito es de $" + total);
+                }
 
                 break;
             case "Super Metroid":
-                let cantidad6 = parseInt(prompt("Cuantos titulos queres comprar?"));
-                alert("Se agrego al carrito " + cantidad6 + " titulos de Super Metroid");
-                if (resultado6 < cantidad6) {
-                resultado6 = resultado6 + (cantidad6 * juegos) ;
+                cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
+                alert("Se agrego al carrito " + cantidad + " titulo/s de Super Metroid");
+                if (resultado < cantidad) {
+                total += (cantidad * juegos) ;
 
-
-                alert("El valor es de $" + resultado6);
+                alert("El valor de su carrito es de $" + total);
                 }
-
 
                 break;
             default:
@@ -104,25 +128,22 @@ function Carrito () {
     
          entrada = prompt("Seleccione otro videojuego para el carrito. Escriba ok para finalizar la compra");
          
-       
-
     }
-
-            let total = resultado + resultado2 + resultado3 + resultado4 + resultado5 + resultado6;
-            alert("El total de la compra es de:  $" +total);
-
-
-            if( entrada == "ok"){
-                alert("Ingrese los datos de su tarjeta de credito, para finalizar la compra. ")
-            }else{
-                false;           
-            }
-
-
-            
-            
+                 
 }
 
+
+
+
+
+// funcion que da el total de la compra
+
+    function Sumar (){
+
+        let TotalCarrito = total;
+        alert("El total de la compra es de:  $" +TotalCarrito);
+
+    }
 
 
 
@@ -133,37 +154,45 @@ function Carrito () {
 
 
 //Se simula un formulario adentro del carrito de compras para finalizar la compra
-function Finalizar (){
+
+    function Finalizar (){
+
+        if( entrada == "ok"){
+            alert("Ingrese los datos de su tarjeta de credito, para finalizar la compra. ")
+        }else{
+            false;           
+        }
+        
 
 
+        prompt("Ingrese su Nombre");
+        prompt("Ingrese su dirección de facturación");
+        let tarjeta = parseInt(prompt("Ingrese el numero de la tarjeta de credito, Precione 0 para cancelar"));
+        let cvv =  parseInt(prompt("Ingrese el cvv, Precione 0 para cancelar"));
+    
 
-    prompt("Ingrese su Nombre");
-    prompt("Ingrese su dirección de facturación");
-    let tarjeta = parseInt(prompt("Ingrese el numero de la tarjeta de credito, Precione 0 para cancelar"));
-    let cvv =  parseInt(prompt("Ingrese el cvv, Precione 0 para cancelar"));
-   
 
+            
+                while(tarjeta != "0"){
 
-          
-            while(tarjeta != "0"){
+                    if(!isNaN(tarjeta) && !isNaN(cvv)){
+                        alert("Gracias por su compra");
+                        break;
+                    }else{
+                        alert("Datos no validos");
+                    }
 
-                if(!isNaN(tarjeta) && !isNaN(cvv)){
-                    alert("Gracias por su compra");
-                    break;
-                  }else{
-                      alert("Datos no validos");
-                  }
-
-                  tarjeta = parseInt(prompt("Ingrese el numero de la tarjeta de credito, Precione 0 para cancelar"));
-                  cvv =  parseInt(prompt("Ingrese el cvv, Precione 0 para cancelar"));
-            }
-             
-       
-}
+                    tarjeta = parseInt(prompt("Ingrese el numero de la tarjeta de credito, Precione 0 para cancelar"));
+                    cvv =  parseInt(prompt("Ingrese el cvv, Precione 0 para cancelar"));
+                }
+                
+        
+    }
 
 
 
 Carrito ();
+Sumar()
 Finalizar();
 
 
