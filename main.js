@@ -52,91 +52,103 @@ let total = 0;
 
 alert("Disponemos de esta lista de videjuegos, escriba el nombre como se muestra en la lista para agregarlo al carrito:\n \n 1) Super Mario World \n 2) Castlevania \n 3) Zelda \n 4) Star Fox \n 5) Mario Kart \n 6) Super Metroid");
 
-//Filtrado en el array de videojuegos
+//Filtrado en el array de videojuegos por genero
 
-let filtros = prompt("¡Si lo desea consulte los generos de videojuegos!, o aprete ENTER para seguir")
-
+let filtros = prompt("¡Si lo desea consulte los generos de videojuegos!, te ayudamos, -Plataforma, -Shooter, -Accion, -Aventura, -Carreras o aprete ENTER para seguir")
 
 
 // Funcion para buscar y agregar videojuegos, hace una operacion para darle al usuario el total del carrito.
 
 let entrada = prompt("Seleccione un videojuego para el carrito. Escriba  ok para finalizar la compra");
 
-
     function Carrito () {
 
-    while( entrada != "ok"){
-        switch (entrada) {
-            case "Super Mario World":
-                cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
-                alert("Se agrego al carrito " + cantidad + " titulo/s de Super Mario World");
-                if (resultado <= cantidad) {
-                total += (cantidad * SuperMarioWorld.precio);
+        while( entrada != "ok"){
+            switch (entrada) {
+                case "Super Mario World":
+                    cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
+                    alert("Se agrego al carrito " + cantidad + " titulo/s de Super Mario World");
+                    if (resultado <= cantidad) {
+                    total += (cantidad * SuperMarioWorld.precio);
 
-                alert("El valor de su carrito es de $" + total);
-                }
-                
-                break;
-            case "Castlevania":
-                cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
-                alert("Se agrego al carrito " + cantidad + " titulo/s de Castlevania");
-                if (resultado < cantidad) {
-                total += (cantidad * Castlevania.precio);
+                    alert("El valor de su carrito es de $" + total);
+                    }
+                    
+                    break;
+                case "Castlevania":
+                    cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
+                    alert("Se agrego al carrito " + cantidad + " titulo/s de Castlevania");
+                    if (resultado < cantidad) {
+                    total += (cantidad * Castlevania.precio);
 
-                alert("El valor de su carrito es de $" + total);
-                }
-                 
-                break;    
-            case "Zelda":
-                cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
-                alert("Se agrego al carrito " + cantidad + " titulo/s de Zelda");
-                if (resultado < cantidad) {
-                total += (cantidad * Zelda.precio);
+                    alert("El valor de su carrito es de $" + total);
+                    }
+                    
+                    break;    
+                case "Zelda":
+                    cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
+                    alert("Se agrego al carrito " + cantidad + " titulo/s de Zelda");
+                    if (resultado < cantidad) {
+                    total += (cantidad * Zelda.precio);
 
-                alert("El valor de su carrito es de $" + total);
-                }
-                
-                break;
-            case "Star Fox":
-                cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
-                alert("Se agrego al carrito " + cantidad + " titulo/s de Star Fox");
-                if (resultado < cantidad) {
-                total += (cantidad * StarFox.precio);
+                    alert("El valor de su carrito es de $" + total);
+                    }
+                    
+                    break;
+                case "Star Fox":
+                    cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
+                    alert("Se agrego al carrito " + cantidad + " titulo/s de Star Fox");
+                    if (resultado < cantidad) {
+                    total += (cantidad * StarFox.precio);
 
-                alert("El valor de su carrito es de $" + total);
-                }
-                
-                break;
-            case "Mario Kart":
-                cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
-                alert("Se agrego al carrito " + cantidad + " titulo/s de Mario Kart");
-                if (resultado < cantidad) {
-                total += (cantidad * MarioKart.precio) ;
+                    alert("El valor de su carrito es de $" + total);
+                    }
+                    
+                    break;
+                case "Mario Kart":
+                    cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
+                    alert("Se agrego al carrito " + cantidad + " titulo/s de Mario Kart");
+                    if (resultado < cantidad) {
+                    total += (cantidad * MarioKart.precio) ;
 
-                alert("El valor de su carrito es de $" + total);
-                }
+                    alert("El valor de su carrito es de $" + total);
+                    }
 
-                break;
-            case "Super Metroid":
-                cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
-                alert("Se agrego al carrito " + cantidad + " titulo/s de Super Metroid");
-                if (resultado < cantidad) {
-                total += (cantidad * SuperMetroid.precio) ;
+                    break;
+                case "Super Metroid":
+                    cantidad = parseInt(prompt("Cuantos titulos queres comprar?"));
+                    alert("Se agrego al carrito " + cantidad + " titulo/s de Super Metroid");
+                    if (resultado < cantidad) {
+                    total += (cantidad * SuperMetroid.precio) ;
 
-                alert("El valor de su carrito es de $" + total);
-                }
+                    alert("El valor de su carrito es de $" + total);
+                    }
 
-                break;
-            default:
-                alert("El videojuego no esta en la lista")
-                 
+                    break;
+                default:
+                    alert("El videojuego no esta en la lista")
+                    
+            }
+
+            function CarrgarJuego(arr, entrada) {
+                arr.push(entrada);
+            }
+            
+            CarrgarJuego(CarritoFinal, entrada)
+        
+
+        
+                entrada = prompt("Seleccione otro videojuego para el carrito. Escriba ok para finalizar la compra");
+            
         }
-    
-         entrada = prompt("Seleccione otro videojuego para el carrito. Escriba ok para finalizar la compra");
-         
-    }
                  
     }
+
+    
+//Carga los productos al array "CarritoFinal"
+
+const CarritoFinal = []
+console.log(CarritoFinal);
 
 
 // funcion que da el total de la compra
