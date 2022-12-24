@@ -153,20 +153,23 @@ const CarritoFinal = []
                     alert("El videojuego no esta en la lista")
 
             }
-            CarrgarJuego(CarritoFinal, entrada)
+            // Funcion de busqueda, pinta por consle.log lo que el usuario eligió para comprar y lo guarda en el array carritoFinal.
+            function porCadaUno(arr, variable) {
+                const prodElegido = arr.find((producto) => producto.nombre == variable)
+                CarritoFinal.push(prodElegido) 
+            };
+            
+            porCadaUno(Listado, entrada) 
+           
             entrada = prompt("Seleccione otro videojuego para el carrito. Escriba ok para finalizar la compra");
         }
 
     }
 
- //Carga los productos elejidos por el usuario al array "CarritoFinal y los pinta en un console.log"
+console.log(CarritoFinal)
 
-function CarrgarJuego(array, entrada) {
-    array.push(entrada);
 
-}
 
-console.log(CarritoFinal);
 
  // funcion que da el total de la compra
 
@@ -250,7 +253,7 @@ function Finalizar (){
    
 
 
-    //funcion de filtrado pinta por consle.log el filtro aplicado por el usuario
+    //Funcion de filtrado pinta por consle.log el filtro aplicado por el usuario
     function filtrarPorGenero(arr, filtro){
         return arr.filter((producto)=>{
           return producto.genero.includes(filtro);   
