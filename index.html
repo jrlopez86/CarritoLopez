@@ -25,7 +25,7 @@
                     <a class="nav-link active" aria-current="page" href="#">Marketplace</a>
                   </li>
                   <li class="nav-item boton__menu">
-                    <a id="carrito" class="nav-link" href="./pages/carrito.html"">
+                    <a id="carrito" class="nav-link" href="#">
                         <img class="cabecera__icono" src="./img/carrito.svg" alt="carrito">
                     </a>
                   </li>
@@ -53,6 +53,7 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Imagen</th>
                         <th scope="col">Item</th>
                         <th scope="col">Total</th>
                       </tr>
@@ -60,6 +61,55 @@
                     <tbody><!-- Elementos dinamicos  --></tbody>                
                 </table>
                   <button id="vaciar__carrito" class="btn btn-primary">Vaciar Carrito</button>
+
+                  <!-- Modal de bootstrap -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Finalizar compra</button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Ingrese los datos</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal__formulario">
+                          <form id="modal__formul" action="" method="get" enctype="text/plain">
+                              <div>
+                                <label for="">Ingrese su nombre</label>
+                                  <input id="modal__nombre" type="text" name="Nombre" placeholder="Nombre" >
+                                  <p class="modal__parrafo" id="modal__par-1"><!-- Elemento dinamicos  --></p>
+                              </div>
+                              <div>
+                                  <label for="">Ingrese su direccion</label>
+                                  <input id="modal__dire" type="text" name="Direccion" placeholder="Direccion" >
+                                  <p class="modal__parrafo" id="modal__par-2"><!-- Elemento dinamicos  --></p>
+                              </div>
+                              <div>
+                                <label for="">Ingrese el numero de tarjeta</label>
+                                <input id="modal__tarjeta" type="text" name="Tarjeta" placeholder="Numero de tarjeta" >
+                                <p class="modal__parrafo" id="modal__par-3"><!-- Elemento dinamicos  --></p>
+                              </div>
+                              <div>
+                                <label  for="">Ingrese el cvv de la tarjeta</label>
+                                <input id="modal__cvv" type="text" name="cvv" placeholder="CVV" >
+                                <p class="modal__parrafo" id="modal__par-4"><!-- Elemento dinamicos  --></p>
+                              </div>   
+                          </form> 
+                           <h2><strong>TOTAL:</strong> <strong>$<span id="modal__total">0</span></strong></h2>
+                        </div>
+                        <div class="modal-footer modal__pie">
+                          <button id="modal__btn-borrar" type="submit" class="modal__borrar">Borrar</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                          <button id="modal__btn" type="button" class="btn btn-primary btn__finalizar">Comprar</button>
+                          <img class="modal__img" src="./img/tarjeta.jpg" alt="">
+                        </div>
+                        <div>
+                          <p id="modal__compra" class="modal__compra"><!-- Elemento dinamico  --></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <h4>Total de la compra: <strong>$</strong><span id="totalCompra">0</span></h4>
               </div>  
           </main>
           
@@ -72,12 +122,9 @@
 
 
 
-  <script src="./js/main.js"></script>
-
+       <script src="./js/main.js"></script>
        <!-- script de bootstrap -->
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>   
-
-     
     </body>
 </html>
 

@@ -89,9 +89,89 @@
     width: 100px;
 }
 
+.tabla__modificar {
+    display: flex;
+flex-direction: column;
 
+}
 
+h4 {
+    display: inline-block;
+    right: 115px;
+    position: absolute;
+  }
 
+#totalCompra {
+    font-weight: bold;
+}
+
+/* modal */
+
+.modal__img{
+    width: 200px;
+}
+
+.modal__pie {
+    display: flex;
+flex-direction: row-reverse;
+}
+
+.btn__finalizar {
+    margin-left: 33px;
+  }
+
+  .modal__borrar {
+    padding: 8px;
+    background-color: #ff0000;
+    border-radius: 5px solid red;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 0;
+  }
+
+  .modal__compra {
+    font-size: 1.2rem;
+    color: #47be47;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+
+  }
+  
+
+ /* datos de la tarjeta */
+
+#modal__cvv {
+    width: 60px;
+}
+
+.modal__formulario {
+	
+	padding: 1.25rem;
+	background-color: #f0f8ff;
+	margin: 50px;
+    width: 75%;
+}
+.modal__formulario input[type="text"]{
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.400rem 0.600rem;
+    border: none;
+    border-bottom: 0.125rem solid hsl(0, 0%, 80%);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    outline: none;
+    background-color: hsl(0, 0%, 100%);
+    
+}
+
+/* Error formulario */
+.modal__parrafo {
+    font-size: 10px;
+    color: #ff0000;
+}
 
 /* Footer */
 .pie {
