@@ -13,6 +13,7 @@
     }
 
     //Creo productos y los almaceno en un array:
+  
     const game1 = new VideoJuegos(1, 'Super Mario World', 'Plataforma', src="./img/supermario.jpg",  160, 10);
     const game2 = new VideoJuegos(2, 'Castlevania', 'Plataforma', src="./img/castlevania.jpg", 250, 6);
     const game3 = new VideoJuegos(3, 'Zelda','Aventura', src="./img/zelda.jpg", 79,  2);
@@ -25,18 +26,20 @@
     const Listado =  [game1, game2, game3, game4, game5, game6];
     let carrito = [];
 
-    // Se agrega localstorage
-    document.addEventListener('DOMContentLoaded', () => {
-      if (localStorage.getItem('carrito')){
-          carrito = JSON.parse(localStorage.getItem('carrito'))
-          actualizarCarrito()
-      }
-  })
-    
+        // Se agrega localstorage
+        document.addEventListener('DOMContentLoaded', () => {
+          if (localStorage.getItem('carrito')){
+              carrito = JSON.parse(localStorage.getItem('carrito'))
+              actualizarCarrito()
+          }
+      })
+
 
     //Se crean las cards de los productos al html
     const contProduct= document.querySelector('#productos')
 
+    function crearHtml(){
+    
     for (const producto of Listado) {
 
     let li = document.createElement('li')
@@ -49,25 +52,31 @@
                         
       contProduct.appendChild(li);
 
+
+     
     //Captura el id del producto a travez del boton
     const boton = document.getElementById(`btn${producto.id}`);
     boton.addEventListener('click', () => {
       agregarAlCarrito(producto.id)
 
+      
     });
 
   };
+}
+crearHtml()
+
+
 
 //Puseha el producto al array carrito
 const agregarAlCarrito = (id) => {
   const producto = Listado.find(producto => producto.id === id);
   carrito.push(producto);
 
-actualizarCarrito()
+  actualizarCarrito()
 }
 
-
-//Se agrega los productos al html carrito
+//Se agrega los productos al html carrito de manera dinamica
 const contenedorCarrito = document.querySelector("#lista__carrito tbody")
 function actualizarCarrito() {
   //Limpiar el HTML
@@ -90,9 +99,10 @@ function actualizarCarrito() {
                       ; 
 
       contenedorCarrito.appendChild(tr);
-      localStorage.setItem('carrito', JSON.stringify(carrito))
+         //Se agrega seteo
+         localStorage.setItem('carrito', JSON.stringify(carrito))
       calcularTotalCompra();
-      
+      calcularTotalmodal();
    
   });
   
@@ -121,36 +131,127 @@ const calcularTotalCompra = () => {
 
 };
 
+//Calcula el total de la compra (modal)
+const modalTotal = document.getElementById('modal__total');
+const calcularTotalmodal = () => {
+  let total = 0;
+  carrito.forEach((producto) => {
+    total += producto.precio;
+  });
+  modalTotal.innerHTML = total;
+  
+
+};
+
 //Funcion para borrar el Precio total cuando se vacia el carrito
 function VaciarPrecio () {
   vaciarCarrito.addEventListener('click', () => {
     totalCompra.innerHTML = 0;
-    textCompra.innerText = " ";
     actualizarCarrito();
-  
+    calcularTotalmodal();
   });
 }
 VaciarPrecio () 
 
-
-//Evento del boton comprar
+//Registro de datos del modal
+const formularioReset = document.getElementById("modal__formul");
+const modalParCvv = document.getElementById("modal__par-4");
+const modalParTarjeta = document.getElementById('modal__par-3');
+const modalParDire = document.getElementById('modal__par-2');
+const modalParNom = document.getElementById('modal__par-1');
 const btnComprar = document.querySelector("#modal__btn");
 const textCompra = document.getElementById("modal__compra");
-const textCompraError = document.getElementById("modal__compra-error");
+const btnBorrar = document.getElementById("modal__btn-borrar");
 
-btnComprar.addEventListener("click", () => {
 
-  if (carrito.length === 0) {
-    textCompraError.innerText = "Ingrese un producto";
-  }else if (carrito.length !== 0){
-    textCompraError.innerText = " ";
-    textCompra.innerText = "GRACIAS POR SU COMPRA";
+//Cuando se hace click en comprar se ejecuta la funcion
+btnComprar.addEventListener("click", ()=>{ 
+  condicionForm()
+});
+
+function condicionForm() {
+
+  let inputNombre = document.getElementById("modal__nombre").value
+  let inputDire = document.getElementById("modal__dire").value
+  let inputTarjeta = document.getElementById("modal__tarjeta").value
+  let inputCvv = document.getElementById("modal__cvv").value
+  const textCompraError = document.getElementById("modal__compra-error");
+
+   //Condiciones en el formulario de compra
+
+   if (inputNombre.length === 0) {
+    modalParNom.innerText = "[ERROR] El campo debe tener un valor"
+  }else if (inputNombre.length !== 0){
+    modalParNom.innerText = " ";
   }
 
-  carrito.splice(0, carrito.length);
-  localStorage.removeItem("carrito");
-  totalCompra.innerHTML = 0;
-  actualizarCarrito();
+  if (inputDire.length === 0) {
+    modalParDire.innerText = "[ERROR] El campo debe tener un valor"
+   }else if (inputDire.length !== 0){
+    modalParDire.innerText = " ";
+   }
 
+  if(isNaN(inputTarjeta) || inputTarjeta.length === 0){
+    modalParTarjeta.innerText = "[ERROR] El campo debe tener un valor numerico"
+  }else{
+    modalParTarjeta.innerText = " ";
+  }
+
+  if(isNaN(inputCvv) || inputCvv.length === 0){
+    modalParCvv.innerText = "[ERROR] El campo debe tener un valor numerico"
+  }else{
+    modalParCvv.innerText = " ";
+    modalTotal.innerHTML = 0;
+    totalCompra.innerHTML = 0;
+    
+
+  //Se valida si hay productos, el usuario no puede comrpar si no hay nada en el carrito
+  if(carrito.length === 0){
+    textCompraError.innerText = "Ingrese un producto";
+    textCompra.innerText = "";
+    }else{
+    localStorage.removeItem("carrito");
+    carrito.splice(0, carrito.length);
+    textCompra.innerText = "GRACIAS POR SU COMPRA";
+    textCompraError.innerText = " ";
+    }
+    actualizarCarrito();
+  
+  }
+
+  
+  
+  formularioReset.reset();
+
+}
+
+//Borra los datos del formulario
+function borrarFormulario() {
+  btnBorrar.addEventListener("click", ()=>{
+  
+    textCompra.innerText = " ";
+    formularioReset.reset();
+   
+  })
+}
+borrarFormulario()
+
+
+//filtrar videojuego
+function filtrarJuego(filtro) {
+  let filtrado = Listado.filter((el) =>{
+    return el.categoria.includes(filtro)
+  });
+  return filtrado
+
+}
+
+//Filtar por nombre
+search.addEventListener("input", () => {
+  let filtro = filtrarJuego(search.value)
+  crearHtml(filtro)
 });
+
+
+
 

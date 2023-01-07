@@ -49,7 +49,7 @@ carrito.push(producto);
 
 //localStorage & JSON
 localStorage.setItem("carrito", JSON.stringify(carrito));
-recuperarCarrito = JSON.parse(localStorage.getItem("carrito"));
+let recuperarCarrito = JSON.parse(localStorage.getItem("carrito"));
 console.log(recuperarCarrito);
 actualizarCarrito()
 }
@@ -77,6 +77,7 @@ recuperarCarrito.forEach(producto => {
                    ; 
 
    contenedorCarrito.appendChild(tr);
+   localStorage.setItem('carrito', JSON.stringify(carrito))
    calcularTotalCompra();
 
 });
@@ -91,7 +92,7 @@ contenedorCarrito.innerHTML = "";
 //Función para vaciar todo el carrito por completo
 const vaciarCarrito = document.getElementById('vaciar__carrito');
 vaciarCarrito.addEventListener('click', () => {
-recuperarCarrito.splice(0, recuperarCarrito.length);
+  carrito.splice(0, carrito.length);
 actualizarCarrito();
 });
 
@@ -99,7 +100,7 @@ actualizarCarrito();
 const totalCompra = document.getElementById('totalCompra');
 const calcularTotalCompra = () => {
 let total = 0;
-recuperarCarrito.forEach((producto) => {
+carrito.forEach((producto) => {
  total += producto.precio;
 });
 totalCompra.innerHTML = total;
@@ -126,7 +127,7 @@ btnComprar.addEventListener("click", () => {
 
 localStorage.removeItem("carrito");
 
-if (recuperarCarrito.length === 0) {
+if (carrito.length === 0) {
  textCompraError.innerText = "Ingrese un producto";
 }else if (recuperarCarrito.length !== 0){
  textCompraError.innerText = " ";
