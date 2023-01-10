@@ -196,11 +196,15 @@ function condicionForm() {
     totalCompra.innerHTML = 0;
   }
 
-  //Se valida si hay productos, el usuario no puede comrpar si no hay nada en el carrito
-  if(carrito.length === 0){
+  //Se valida si hay productos, el usuario no puede comrpar si no hay nada en el carrito, y se valida si el usuario escribio los datos de la compra
+  if((carrito.length === 0)){
     textCompraError.innerText = "Ingrese un producto";
     textCompra.innerText = "";
+    }else if((inputCvv.length === 0) || (inputTarjeta.length === 0) || (inputDire.length === 0) || (inputNombre.length === 0) ){
+    textCompraError.innerText = "Ingrese los datos";
+    textCompra.innerText = "";
     }else{
+      formularioReset.reset();
     localStorage.removeItem("carrito");
     carrito.splice(0, carrito.length);
     textCompra.innerText = "GRACIAS POR SU COMPRA";
@@ -208,8 +212,6 @@ function condicionForm() {
     }
     actualizarCarrito();
   
-  
-  formularioReset.reset();
 
 }
 
