@@ -98,15 +98,29 @@
 
 }
 
-h4 {
-    display: inline-block;
-    right: 115px;
-    position: absolute;
-  }
+#carrito h4 {
+display: inline-block;
+right: 115px;
+position: absolute;
+}
 
 #totalCompra {
     font-weight: bold;
 }
+
+#vaciar__carrito {
+    background-color: gray;
+    border: none;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+#modal__finalizar {
+background: green;
+border: none;
+font-weight: bold;
+box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+  
 
 /* modal */
 
