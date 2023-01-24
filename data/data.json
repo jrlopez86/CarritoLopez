@@ -1,0 +1,123 @@
+
+[
+   {
+      "id":1,
+      "nombre":"Super Mario World",
+      "categoria":"plataforma",
+      "caratula":"./img/supermario.jpg",
+      "precio":160,
+      "stock":1
+   },
+   {
+      "id":2,
+      "nombre":"Castlevania",
+      "categoria":"plataforma",
+      "caratula":"./img/castlevania.jpg",
+      "precio":250,
+      "stock":1
+   },
+   {
+      "id":3,
+      "nombre":"Zelda",
+      "categoria":"aventura",
+      "caratula":"./img/zelda.jpg",
+      "precio":79,
+      "stock":1
+   },
+   {
+      "id":4,
+      "nombre":"Star Fox",
+      "categoria":"shooter",
+      "caratula":"./img/starfox.jpg",
+      "precio":32,
+      "stock":1
+   },
+   {
+      "id":5,
+      "nombre":"Super Mario Kart",
+      "categoria":"carreras",
+      "caratula":"./img/mariokart.jpg",
+      "precio":60,
+      "stock":1
+   },
+   {
+      "id":6,
+      "nombre":"Super Metroid",
+      "categoria":"accion",
+      "caratula":"./img/metroid.jpg",
+      "precio":337,
+      "stock":1
+   },
+   {
+      "id":7,
+      "nombre":"Aladín",
+      "categoria":"plataforma",
+      "caratula":"./img/aladin.jpg",
+      "precio":87,
+      "stock":1
+   },
+   {
+      "id":8,
+      "nombre":"TMNT",
+      "categoria":"plataforma",
+      "caratula":"./img/tmnt.jpg",
+      "precio":250,
+      "stock":1
+   },
+   {
+      "id":9,
+      "nombre":"Street Fighter II",
+      "categoria":"lucha",
+      "caratula":"./img/streetfighters.jpg",
+      "precio":200,
+      "stock":1
+   },
+   {
+      "id":10,
+      "nombre":"Killer Instinct",
+      "categoria":"lucha",
+      "caratula":"./img/ki.jpg",
+      "precio":60,
+      "stock":1
+   },
+   {
+      "id":11,
+      "nombre":"Batman Returns",
+      "categoria":"accion",
+      "caratula":"./img/batman.jpg",
+      "precio":149,
+      "stock":1
+   },
+   {
+      "id":12,
+      "nombre":"The lion king",
+      "categoria":"aventura",
+      "caratula":"./img/tlk.jpg",
+      "precio":282,
+      "stock":1
+   },
+   {
+      "id":13,
+      "nombre":"X-MEN: Mutant Apocalypse",
+      "categoria":"accion",
+      "caratula":"./img/xmen.jpg",
+      "precio":91,
+      "stock":1
+   },
+   {
+      "id":14,
+      "nombre":"Donkey Kong Country",
+      "categoria":"plataforma",
+      "caratula":"./img/dkk.jpg",
+      "precio":60,
+      "stock":1
+   },
+   {
+      "id":15,
+      "nombre":"EarthBound",
+      "categoria":"rol",
+      "caratula":"./img/eb.jpg",
+      "precio":1000,
+      "stock":1
+   }
+]

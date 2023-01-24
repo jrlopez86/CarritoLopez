@@ -8,12 +8,18 @@
 
 
 /* Header */
-.boton__menu{
+.boton__menu {
     margin-right: 2.2rem;
+}
+
+.navbar__mod {
+    box-shadow: 0px -3px 18px 0px rgba(0, 0, 0, 0.3);
+    padding: 0px !important
 }
 
 .logo {
     width: 100px;
+
 }
 
 .buscar {
@@ -22,17 +28,16 @@
     border-bottom: 0.125rem solid hsl(0, 0%, 80%);
     outline: none;
     background-color: #f8f9fa;
-    
-    
 }
 
 
 /* Main */
 .titulo {
     display: flex;
-	justify-content: center;
-	text-align: center;
-	margin-top: 3rem;
+    justify-content: center;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .card {
@@ -45,7 +50,7 @@
     color: #030255;
 }
 
-.card__titulo { 
+.card__titulo {
     margin-top: 1rem;
     font-size: 1.3rem;
 }
@@ -89,6 +94,24 @@
 }
 
 /* carrito */
+
+.container table thead tr th {
+    position: relative;
+    top: -8px;
+}
+
+.mod {
+    top: 21px;
+    position: relative;
+}
+
+.btn__residuos {
+    height: 50px;
+    width: 40px;
+    top: 13px;
+    position: relative;
+}
+
 .conteiner__imagen {
     width: 100px;
 }
@@ -100,9 +123,9 @@
 }
 
 #carrito h4 {
-display: inline-block;
-right: 115px;
-position: absolute;
+    display: inline-block;
+    right: 115px;
+    position: absolute;
 }
 
 #totalCompra {
@@ -113,65 +136,93 @@ position: absolute;
     background-color: gray;
     border: none;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    transition: all .4s ease;
+}
+
+#vaciar__carrito:hover {
+    background-color: #6b6767;
 }
 
 #modal__finalizar {
-background: green;
-border: none;
-font-weight: bold;
-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background: #12a712;
+    border: none;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin-left: 20px;
+    transition: all .4s ease;
 }
-  
+
+#modal__finalizar:hover {
+    background-color: #008000;
+
+}
+
+/* spinner bootstrap */
+.off {
+    display: none !important
+}
+/* spinner bootstrap */
+
 
 /* modal */
 
-.modal__img{
+.modal__img {
     width: 200px;
 }
 
 .modal__pie {
     display: flex;
-flex-direction: row-reverse;
+    flex-direction: row-reverse;
 }
 
 .btn__finalizar {
     margin-left: 33px;
+    width: 24%;
+    font-weight: bold !important
+
 }
 
 .modal__borrar {
-padding: 8px;
-background-color: #ff0000;
-border-radius: 5px solid red;
-color: white;
-border-radius: 6px;
-text-decoration: none;
-border: 0;
+    padding: 8px;
+    background-color: #f86f6f;
+    border-radius: 5px solid #f86f6f;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 0;
+}
+
+.modal__cerrar {
+    background-color: #c4bfbf !important;
+    border: none !important;
+    height: 40px !important
 }
 
 .modal__compra {
-font-size: 1.2rem;
-color: #47be47;
-font-weight: bold;
-display: flex;
-justify-content: center;
+    font-size: 1.2rem;
+    color: #47be47;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
 
 }
-  
 
- /* datos de la tarjeta */
+
+/* datos de la tarjeta */
 
 #modal__cvv {
     width: 60px;
 }
 
 .modal__formulario {
-	
-	padding: 1.25rem;
-	background-color: #f0f8ff;
-	margin: 50px;
+
+    padding: 1.25rem;
+    background-color: #f0f8ff;
+    margin: 50px;
     width: 75%;
 }
-.modal__formulario input[type="text"]{
+
+.modal__formulario input[type="text"] {
     display: block;
     width: 100%;
     margin-bottom: 1rem;
@@ -182,7 +233,7 @@ justify-content: center;
     font-size: 1rem;
     outline: none;
     background-color: hsl(0, 0%, 100%);
-    
+
 }
 
 /* Error formulario */
@@ -197,7 +248,7 @@ justify-content: center;
     font-weight: bold;
     display: flex;
     justify-content: center;
-  }
+}
 
 /* Footer */
 .pie {
