@@ -38,15 +38,17 @@ btnComprar.addEventListener("click", () => {
   modalTotal.innerHTML = 0;
   totalCompra.innerHTML = 0;
 
+
+  
+
   //Se valida si hay productos, el usuario no puede comrpar si no hay nada en el carrito, y se valida si el usuario escribio los datos de la compra
   if (carrito.length === 0) {
     error();
     textCompra.innerText = "";
   } else if (
-    inputCvv.length === 0 ||
-    inputTarjeta.length === 0 ||
-    inputDire.length === 0 ||
-    inputNombre.length === 0
+    isNaN(inputCvv) || inputCvv.length === 0 ||
+    isNaN(inputCvv) || inputTarjeta.length === 0 ||
+    inputDire.length === 0 ||  inputNombre.length === 0
   ) {
     textCompraError.innerText = "Ingrese los datos";
   } else {
