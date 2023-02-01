@@ -1,12 +1,7 @@
-//Filtra los juegos por categoria
-function filtrarJuego(filtro) {
-  let filtrado = Listado.filter((producto) => {
+ //Filtra los juegos por categoria
+ function filtrarJuego(filtro, data) {
+  let filtrado = data.filter((producto) => {
     return producto.categoria.includes(filtro);
   });
   return filtrado;
 }
-//Filtra por categoria
-search.addEventListener("input", () => {
-  let filtro = filtrarJuego((search.value = search.value.toLowerCase()));
-  crearHtml(filtro);
-});

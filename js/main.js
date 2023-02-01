@@ -5,6 +5,7 @@ const contProduct= document.querySelector('#productos'),
       totalCompra = document.getElementById('totalCompra'),
       modalTotal = document.getElementById('modal__total');
       spinner = document.getElementById('spinner4');
+ 
 
 // Se agrega localstorage y JSON (operador ternario OR)
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,40 +30,12 @@ function crearHtml(arr) {
     //Captura el id del producto a travez del boton
     const boton = document.getElementById(`btn${id}`);
     boton.addEventListener("click", () => {
-      agregarAlCarrito(id);
+      agregarAlCarrito(id, arr);
+
     });
   }
 }
   
-//Puseha el producto al array carrito y si un producto ya existe se acumula (se agrega Toastify)
-const agregarAlCarrito = (id) => {
-  let producto;
-  const existe = carrito.some((producto) => producto.id === id);
-  if (existe) {
-    producto = carrito.map((producto) => {
-      if (producto.id === id) {
-        producto.stock++;
-        Toastify({
-          text: `"${producto.nombre} Se agrego al carrito"`,
-          duration: 1500,
-          position: "left",
-          border: "1px solid red",
-        }).showToast();
-      }
-    });
-  } else {
-    producto = Listado.find((producto) => producto.id === id);
-    carrito.push(producto);
-    Toastify({
-      text: `"${producto.nombre} Se agrego al carrito"`,
-      duration: 1500,
-      position: "left",
-      border: "1px solid red",
-    }).showToast();
-  }
-  actualizarCarrito();
-};
-
 //Se agrega los productos al carrito de manera dinamica (Destructuring)
 function actualizarCarrito() {
   //Limpiar el HTML
@@ -115,6 +88,24 @@ function actualizarCarrito() {
     });
   });
 }
+
+//Puseha el producto al array carrito y si un producto ya existe se acumula (se agrega Toastify)
+const agregarAlCarrito = (id, data) => {
+  const existe = carrito.some((producto) => producto.id === id);
+  if (existe) {
+    producto = carrito.map((producto) => {
+      if (producto.id === id) {
+        producto.stock++;
+        toastifyAagregarProd(producto);
+      }
+    });
+  } else {
+    let producto = data.find((producto) => producto.id === id);
+    carrito.push(producto);
+    toastifyAagregarProd(producto);
+  }
+  actualizarCarrito();
+};
 
 //Limpia el HTML para que no hayan duplicados
 function limpiarHTML (){
@@ -171,7 +162,14 @@ function toastifyVaciarCarr() {
   }).showToast();
 
 }
-
+function toastifyAagregarProd (producto) {
+  Toastify({
+    text: `"${producto.nombre} Se agrego al carrito"`,
+    duration: 1500,
+    position: "left",
+    border: "1px solid red",
+  }).showToast();
+}
 
 //simula conexion a basa de datos
 setTimeout(() => {
@@ -180,9 +178,20 @@ setTimeout(() => {
   fetch("./data/data.json")
     .then((response) => response.json())
     .then((data) => {
+      //Filtra por categoria
+      search.addEventListener("input", () => {
+      let filtro = filtrarJuego((search.value.toLowerCase()), data);
+      crearHtml(filtro);
+      });
+  
       crearHtml(data);
     });
+   
 }, 1000);
+
+
+
+
 
 
 
